@@ -1,6 +1,8 @@
 import React from 'react';
-
 import './App.css';
+import Post from './Post';
+
+
 
 function App() {
   return (
@@ -15,14 +17,18 @@ function App() {
           alt=""
 
           />
-   
-          <h1>HELLO DEVELOPER</h1>
+  
+    
+    
 
       </div>
 
-      {/*header*/}
- {/*POST*/}
- {/*POST  */}
+      <h1>HELLO DEVS</h1>
+
+      <Post />
+      <Post />
+      <Post />
+ 
 
 
       
