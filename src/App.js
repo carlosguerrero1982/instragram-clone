@@ -52,13 +52,6 @@ function App() {
       if (authUser){
         console.log(authUser);
         setUser(authUser);
-        if(authUser.displayName){
-
-        }else{
-          return authUser.updateProfile({
-            displayName:username,
-          })
-        }
 
       }else{
 
@@ -166,13 +159,19 @@ function App() {
           alt=""
 
           />
-  
-    
-    
-
       </div>
 
-      <Button onClick={()=>setOpen(true)}> SIGN UP </Button>
+      {user ? (
+
+        <Button onClick={()=>auth.signOut()}> LOG OUT </Button>
+
+      ):(
+        <Button onClick={()=>setOpen(true)}> SIGN UP </Button>
+
+
+      )}
+
+     
 
       <h1>HELLO DEVS</h1>
 
