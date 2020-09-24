@@ -1,10 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Post from './Post';
 
 
 
 function App() {
+
+  const [posts, setPosts] = useState([
+
+      {
+        username:"LITO",
+        caption:"COOLLL",
+        imageUrl:"https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg",
+      },
+
+      {
+        username:"PEPE",
+        caption:"SIIII",
+        imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png",
+      },
+
+      {
+        username:"MANU",
+        caption:"YEAHHH",
+        imageUrl:"https://benjagarrido.com/wp-content/uploads/2015/07/java_logo.png",
+      },
+    
+  ])
   return (
     <div className="App">
 
@@ -25,10 +47,13 @@ function App() {
 
       <h1>HELLO DEVS</h1>
 
-      <Post />
-      <Post />
-      <Post />
- 
+      {posts.map(post =>(
+
+        <Post username= {post.username} caption = {post.caption} imageUrl={post.imageUrl} />
+
+      ))}
+
+      
 
 
       

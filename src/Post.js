@@ -3,7 +3,7 @@ import React from 'react'
 import './Post.css';
 
 
-function Post() {
+function Post({username, caption, imageUrl}) {
     return (
         <div className="post">
 
@@ -16,14 +16,14 @@ function Post() {
             src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
            />
 
-            <h3> username   </h3>
+            <h3> {username} </h3>
 
             </div>
 
-            <img className="post_image" src="https://i.morioh.com/200623/6c839150.jpg" alt="" />
+            <img className="post_image" src={imageUrl}alt="" />
             
 
-            <h4 className="post_text"><strong>LITO</strong>  QUE COOL</h4>
+            <h4 className="post_text"><strong>{username} </strong>{caption}</h4>
 
 
         </div>
