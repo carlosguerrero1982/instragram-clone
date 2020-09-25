@@ -40,9 +40,8 @@ function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [user, setUser] = useState(null);
-
-  
+  const [user, setUser] = useState('');
+  const [opensignin, setOpensignin] = useState(false);  
 
   useEffect(()=>{
 
@@ -93,6 +92,13 @@ function App() {
 
         })
         .catch((error)=>alert(error.message))
+     }
+
+     const signIn =(event) =>{
+
+        event.preventDefault();
+        
+    
      }
 
   return (
@@ -150,6 +156,54 @@ function App() {
 
 </Modal>
 
+
+<Modal
+  open={opensignin}
+  onClose={()=>setOpensignin(false)}
+  
+>
+<div style={modalStyle} className={classes.paper}>
+
+  <form className="app_signup">
+      <center>
+
+      <img
+
+      className="app_headerImage"
+      src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+      alt=""
+
+      />
+</center>
+        
+
+      <Input
+
+        placeholder="email"
+        type="text"
+        value={email}
+        onChange={(e)=>setEmail(e.target.value)}
+       
+        />
+
+        <Input
+
+        placeholder="password"
+        type="password"
+        value={password}
+        onChange={(e)=>setPassword(e.target.value)}
+
+        />
+     <Button type="submit" onClick={signIn}> SIGN IN </Button>
+      
+ </form>
+    
+</div>
+
+</Modal>
+
+
+
       <div className="app_header">
 
         <img
@@ -166,8 +220,12 @@ function App() {
         <Button onClick={()=>auth.signOut()}> LOG OUT </Button>
 
       ):(
-        <Button onClick={()=>setOpen(true)}> SIGN UP </Button>
+        
+        <div className="app_logincontainer">
+        <Button onClick={()=>setOpensignin(true)}> SIGN IN </Button>
 
+        <Button onClick={()=>setOpen(true)}> SIGN UP </Button>
+        </div>
 
       )}
 
