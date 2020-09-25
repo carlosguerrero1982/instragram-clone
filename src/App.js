@@ -97,7 +97,11 @@ function App() {
      const signIn =(event) =>{
 
         event.preventDefault();
-        
+        auth
+          .signInWithEmailAndPassword(email,password)
+          .catch((error)=>alert(error.message));
+
+          setOpensignin(false);
     
      }
 
