@@ -6,6 +6,10 @@ import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
+import Toolbar from '@material-ui/core/Toolbar';
+import InputBase from '@material-ui/core/InputBase';
+import SearchIcon from '@material-ui/icons/Search';
+import ImageUpload from './ImageUpload';
 
 function getModalStyle() {
   const top = 50 ;
@@ -54,7 +58,7 @@ function App() {
 
       }else{
 
-          setUser(null);
+          setUser('');
       }
     })
      return ()=>{
@@ -107,6 +111,8 @@ function App() {
 
   return (
     <div className="App">
+
+     <ImageUpload />
 
 <Modal
   open={open}
@@ -217,12 +223,17 @@ function App() {
           alt=""
 
           />
+
+    
+
+
       </div>
 
       {user ? (
-
+        <div>
         <Button onClick={()=>auth.signOut()}> LOG OUT </Button>
-
+        <h3>{user.displayName}</h3>
+</div>
       ):(
         
         <div className="app_logincontainer">
@@ -236,6 +247,8 @@ function App() {
      
 
       <h1>HELLO DEVS</h1>
+
+       
 
       {posts.map(({id,post}) =>(
 
