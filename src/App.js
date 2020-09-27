@@ -255,10 +255,7 @@ function App() {
 
       )}
 
-     
-
-      <h1>HELLO DEVS</h1>
-
+    
        
 
       {posts.map(({id,post}) =>(
