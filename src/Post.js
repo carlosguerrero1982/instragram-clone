@@ -3,7 +3,7 @@ import React, { useState,useEffect } from 'react'
 import './Post.css';
 import {db} from './firebase';
 
-function Post({username, caption, imageUrl, postId}) {
+function Post({username, caption, imageUrl, postId,user}) {
 
     const[comments,setComments] = useState([]);
     const[comment,setComment] = useState('');
@@ -34,8 +34,15 @@ function Post({username, caption, imageUrl, postId}) {
 
 
     const postComment = (event) =>{
+      
+        event.PreventDefault();
 
+        db.collection("posts").doc(postId).collection("comments").add({
 
+            text:comment,
+            username:user.displayName
+        })
+            setComment('');
     }
 
     return (
