@@ -17,6 +17,9 @@
   border-bottom: 1px solid lightgray;
   display: flex;
   justify-content: space-between;
+  top: 0;
+  position: sticky;
+  z-index: 1;
 }
 
 .app_signup{
@@ -33,7 +36,7 @@
 .app_posts{
 padding: 20px;
 display: flex;
-justify-content:center;
+justify-content:ce;
 }
 
 .app_postRight{
