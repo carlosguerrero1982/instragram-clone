@@ -10,6 +10,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import ImageUpload from './ImageUpload';
+import InstagramEmbed from 'react-instagram-embed';
 
 function getModalStyle() {
   const top = 50 ;
@@ -224,34 +225,50 @@ function App() {
 
           />
 
-    
+          {user ? (
+                  <div>
+                  <Button onClick={()=>auth.signOut()}> LOG OUT </Button>
+                  
+          </div>
+                ):(
+                  
+                  <div className="app_logincontainer">
+                  <Button onClick={()=>setOpensignin(true)}> SIGN IN </Button>
+
+                  <Button onClick={()=>setOpen(true)}> SIGN UP </Button>
+                  </div>
+
+                )}
 
 
       </div>
 
-      {user ? (
-        <div>
-        <Button onClick={()=>auth.signOut()}> LOG OUT </Button>
-        <h3>{user.displayName}</h3>
-</div>
-      ):(
-        
-        <div className="app_logincontainer">
-        <Button onClick={()=>setOpensignin(true)}> SIGN IN </Button>
-
-        <Button onClick={()=>setOpen(true)}> SIGN UP </Button>
-        </div>
-
-      )}
+      
 
     
-       
+    <div className="app_posts">
 
       {posts.map(({id,post}) =>(
 
         <Post key={id} username= {post.username} caption = {post.caption} imageUrl={post.imageUrl} />
 
       ))}
+
+</div>
+
+<InstagramEmbed
+  url='https://instagr.am/p/Zw9o4/'
+  maxWidth={320}
+  hideCaption={false}
+  containerTagName='div'
+  protocol=''
+  injectScript
+  onLoading={() => {}}
+  onSuccess={() => {}}
+  onAfterRender={() => {}}
+  onFailure={() => {}}
+/>
+
 
 {user?.displayName ? (
 
