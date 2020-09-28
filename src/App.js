@@ -112,18 +112,7 @@ function App() {
   return (
     <div className="App">
 
-     {user?.displayName ? (
-
-       <ImageUpload username ={user.displayName} />
-
-     ):
-      (
-
-        <h3>SORRY NEED TO LOGIN</h3>
-
-      )
-     
-     }
+    
 
 <Modal
   open={open}
@@ -264,7 +253,18 @@ function App() {
 
       ))}
 
-      
+{user?.displayName ? (
+
+<ImageUpload username ={user.displayName} />
+
+):
+(
+
+ <h3>SORRY NEED TO LOGIN</h3>
+
+)
+
+}
 
 
       
